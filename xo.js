@@ -25,6 +25,7 @@ function move(){
 		tabl[m][n]="x";
 		abc.rows[m].cells[n].style.backgroundColor = 'red';
 		counterXO();
+		answer();
 }
 
 var counterXO = function(){
@@ -50,7 +51,6 @@ var counterXO = function(){
 		};
 	}
 }
-answer();
 }
 
 var answer = function(){
@@ -59,9 +59,12 @@ for (let i = 0; i < 3; i++){
 		win=true;
 	}else if((rowCounterO[i]==3)||(cellCounterO[i]==3)||(diagDownCounterO==3)||(diagUpCounterO==3)){
 			lose=true;
-				} /*else if((rowCounterX[i]==3)||(cellCounterX[i])==3)){
-
-					}*/
+				}else if(diagDownCounterX==2){
+					if(tabl[1][1]=="e"){
+						tabl[1][1]="0";
+						abc.rows[1].cells[1].style.backgroundColor = 'green';
+						};
+					}
 	
 /*console.log(rowCounterX[i]);
 console.log(rowCounterO[i]);
