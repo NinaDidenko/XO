@@ -1,0 +1,96 @@
+var tabl = [[],[],[]];
+for (let i = 0; i < 3; i++){
+	for (let j = 0; j < 3; j++){
+		tabl[i][j]="e";
+	}
+}
+
+var abc = document.getElementById('playingField');
+var rowCounterX = [];
+var cellCounterX = [];
+var rowCounterO = [];
+var cellCounterO = [];
+var diagDownCounterX;
+var diagUpCounterX;
+var diagDownCounterO;
+var diagUpCounterO;
+var win = false;
+var lose = false;
+
+
+function move(){
+	let playersMove = document.querySelector('#player').value;
+		let n = playersMove % 10 - 1; console.log(n);
+		let m = (playersMove - n - 1) / 10 - 1; console.log(m);
+		tabl[m][n]="x";
+		abc.rows[m].cells[n].style.backgroundColor = 'red';
+		counterXO();
+}
+
+var counterXO = function(){
+	rowCounterX = [0,0,0];
+	cellCounterX = [0,0,0];
+	rowCounterO = [0,0,0];
+	cellCounterO = [0,0,0];
+	diagDownCounterX;
+	diagUpCounterX;
+	diagDownCounterO;
+	diagUpCounterO;
+	for (let i = 0; i < 3; i++){
+	for (let j = 0; j < 3; j++){
+		if(tabl[i][j]=="x"){
+		rowCounterX[i]++;
+		cellCounterX[j]++;
+		if(i==j){diagDownCounter++;}else if(j==2-i){diagUpCounterX++);	
+		};
+		if(tabl[i][j]=="0"){
+		rowCounterO[i]++;
+		cellCounterO[j]++;	
+		};
+	}
+}
+outXO();
+}
+
+var outXO = function(){
+for (let i = 0; i < 3; i++){
+	if ((rowCounterX[i]==3)||(cellCounterX[i])==3)){
+		win=true;
+	}else if((rowCounterO[i]==3)||(cellCounterO[i])==3)){
+			lose=true;
+				}else if((rowCounterX[i]==3)||(cellCounterX[i])==3)){
+
+					}
+	
+console.log(rowCounterX[i]);
+console.log(rowCounterO[i]);
+console.log(cellCounterX[i]);
+console.log(cellCounterO[i]);	
+}
+}
+
+var answer = function(){
+
+}
+
+
+
+/*function tableOut(){
+for (let i = 0; i < 3; i++){
+	for (let j = 0; j < 3; j++){
+		document.write(table[i][j]);
+	}
+	document.write("<br />");
+}
+}*/
+
+/*function tableOut(){
+for (let i = 0; i < 3; i++){
+	for (let j = 0; j < 3; j++){	
+	//let field = document.querySelector('.playingField');
+	let newLine = document.createElement('p');
+	newLine.innerHTML = table[i][j];
+	document.body.appendChild(newLine);
+	console.log(table[i][j]);
+}
+}*/
