@@ -73,16 +73,25 @@ function moveClick(el){
 			alert("Вы выиграли!");
 			//setTimeout(winColor(), 100000);
 		}else if(lose==true){
-			alert("Вы proиграли!");
+			//alert("Вы proиграли!");
 			//document.write("Вы проиграли!");
 			//setTimeout(winColor(), 100000);
+			el.innerHTML = "Вы проиграли!";
 		};
 	}
 }
 
-/*function f(el) {
-    alert(el.id);
-}*/
+/*var tablRowClick = function(el1){
+	return el1.rowIndex;
+}
+
+function f(el) {
+    //alert(el.rowIndex);
+    alert(el.cellIndex);
+    //alert(el.rowIndex);
+}
+*/
+
 
 
 
