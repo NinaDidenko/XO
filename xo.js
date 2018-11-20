@@ -34,7 +34,7 @@ function move(){
 		console.log("coXO");
 		answer();
 		console.log("answ");
-		counterXO();
+		setTimeout(counterXO(), 100000);
 		console.log("coXO");
 		winCheck();
 		console.log("winCh");
@@ -42,11 +42,49 @@ function move(){
 		console.log(lose);
 		if(win==true){
 			alert("Вы выиграли!");
+			//setTimeout(winColor(), 100000);
 		}else if(lose==true){
 			alert("Вы proиграли!");
+			//document.write("Вы проиграли!");
+			//setTimeout(winColor(), 100000);
 		};
 	}
 }
+
+function moveClick(el){
+	let playersMove = el.id;
+		let n = playersMove % 10; //console.log(n);
+		let m = (playersMove - n) / 10; //console.log(m);
+		if(tabl[m][n]=="e"){
+		tabl[m][n]="x";
+		abc.rows[m].cells[n].style.backgroundColor = 'red';
+		console.log("red");
+		counterXO();
+		console.log("coXO");
+		answer();
+		console.log("answ");
+		setTimeout(counterXO(), 100000);
+		console.log("coXO");
+		winCheck();
+		console.log("winCh");
+		console.log(win);
+		console.log(lose);
+		if(win==true){
+			alert("Вы выиграли!");
+			//setTimeout(winColor(), 100000);
+		}else if(lose==true){
+			alert("Вы proиграли!");
+			//document.write("Вы проиграли!");
+			//setTimeout(winColor(), 100000);
+		};
+	}
+}
+
+/*function f(el) {
+    alert(el.id);
+}*/
+
+
 
 var counterXO = function(){
 	rowCounterX = [0,0,0];
@@ -127,7 +165,6 @@ if((diagDownCounterO==2)&&(diagDownCounter<3)){
 									//console.log("cell"+i);
 								}
 			i++;
-			console.log("forTwo cycle");
 			};
 };
 if(newMove==false){		
@@ -153,32 +190,31 @@ if(newMove==false){
 									console.log(tabl);
 								}else if(tabl[2][2]=="e"){
 									tabl[2][2] = "0";
-									abc.rows[2].cells[2].style.backgroundColor = 'green'; console.log("green22");
+									abc.rows[2].cells[2].style.backgroundColor = 'green'; //console.log("green22");
 									newMove = true;
 									console.log(tabl);
 								}else if(tabl[0][1]=="e"){
 									tabl[0][1] = "0";
-									abc.rows[0].cells[1].style.backgroundColor = 'green'; console.log("green12");
+									abc.rows[0].cells[1].style.backgroundColor = 'green'; //console.log("green12");
 									newMove = true;
-									console.log(tabl);
+									//console.log(tabl);
 								}else if(tabl[1][0]=="e"){
 									tabl[1][0] = "0";
-									abc.rows[1].cells[0].style.backgroundColor = 'green'; console.log("green23");
+									abc.rows[1].cells[0].style.backgroundColor = 'green'; //console.log("green23");
 									newMove = true;
-									console.log(tabl);
+									//console.log(tabl);
 								}else if(tabl[2][1]=="e"){
 									tabl[2][1] = "0";
-									abc.rows[2].cells[1].style.backgroundColor = 'green'; console.log("green32");
+									abc.rows[2].cells[1].style.backgroundColor = 'green'; //console.log("green32");
 									newMove = true;
-									console.log(tabl);
+									//console.log(tabl);
 								}else if(tabl[1][2]=="e"){
 									tabl[1][2] = "0";
-									abc.rows[1].cells[2].style.backgroundColor = 'green'; console.log("green21");
+									abc.rows[1].cells[2].style.backgroundColor = 'green'; //console.log("green21");
 									newMove = true;
-									console.log(tabl);
+									//console.log(tabl);
 								};
-}
-console.log(newMove);								
+}							
 }
 
 var answerForTwo = function(x1, y1, upX, upY){
@@ -212,3 +248,17 @@ i++;
 //console.log("win cycle");
 }	
 }
+
+/*var winColor = function(){
+	if(win==true){
+			for (let i = 0; i < 3; i++){
+			for (let j = 0; j < 3; j++){
+				abc.rows[i].cells[j].style.backgroundColor = 'red';
+			}};
+		}else if(lose==true){
+			for (let i = 0; i < 3; i++){
+			for (let j = 0; j < 3; j++){
+				abc.rows[i].cells[j].style.backgroundColor = 'green';
+			}};
+		};
+}*/
