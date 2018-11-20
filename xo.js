@@ -26,6 +26,7 @@ function move(){
 	let playersMove = document.querySelector('#player').value;
 		let n = playersMove % 10 - 1; //console.log(n);
 		let m = (playersMove - n - 1) / 10 - 1; //console.log(m);
+		if(tabl[m][n]=="e"){
 		tabl[m][n]="x";
 		abc.rows[m].cells[n].style.backgroundColor = 'red';
 		console.log("red");
@@ -44,6 +45,7 @@ function move(){
 		}else if(lose==true){
 			alert("Вы proиграли!");
 		};
+	}
 }
 
 var counterXO = function(){
